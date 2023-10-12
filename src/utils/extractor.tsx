@@ -1,4 +1,4 @@
-export const extractCity = inputString => {
+export const extractCity = (inputString: string): string | null => {
   const parts = inputString.split(',');
   if (parts.length >= 2) {
     const secondPart = parts[1].trim();
@@ -10,7 +10,7 @@ export const extractCity = inputString => {
   return null;
 };
 
-export const extractCountry = inputString => {
+export const extractCountry = (inputString: string): string | null => {
   const parts = inputString.split(',');
   if (parts.length >= 3) {
     const thirdPart = parts[2].trim();
