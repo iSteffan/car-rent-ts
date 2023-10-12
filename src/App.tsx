@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { Layout } from './components/Layout/Layout';
+
+const Home = lazy(() => import('./pages/Home'));
+const Catalog = lazy(() => import('./pages/Catalog'));
+const Favorites = lazy(() => import('./pages/Favorites'));
 
 function App() {
   return (
