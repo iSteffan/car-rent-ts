@@ -1,11 +1,5 @@
 import { createPortal } from 'react-dom';
-import {
-  Backdrop,
-  ModalContainer,
-  CloseButton,
-  CloseIcon,
-  Img,
-} from './ModalWindow.styled';
+import { Backdrop, ModalContainer, CloseButton, CloseIcon, Img } from './ModalWindow.styled';
 import { CarDataModal } from './components/CarDataModal/CarDataModal';
 
 export const ModalWindow = ({ data, handlerCloseModal }) => {
