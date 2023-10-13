@@ -2,7 +2,7 @@ import { ResponseData, SearchParams } from '../App.types';
 
 export const searchFilter = (itemsAmount: ResponseData[], searchParam: SearchParams) => {
   if (!searchParam) {
-    return false;
+    return;
   }
 
   const filteredCars = itemsAmount.filter(car => car.make === searchParam.make);
