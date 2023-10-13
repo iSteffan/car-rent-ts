@@ -10,7 +10,7 @@ export const AddToFavorBtn = ({ data }: Props) => {
   const dispatch = useDispatch();
 
   const favorite = useSelector(selectFavorites);
-  // console.log(favorite);
+
   const isFavorite = checkFavorBtnStatus(favorite, data);
 
   return (

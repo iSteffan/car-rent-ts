@@ -1,8 +1,8 @@
-export const extractRentalPricesInRange = array => {
+import { ResponseData } from '../App.types';
+
+export const extractRentalPricesInRange = (array: ResponseData[]): string[] => {
   // Спочатку ми створимо масив з усіма значеннями rentalPrice, видалимо "$" та перетворимо на числа.
-  const rentalPrices = array.map(item =>
-    parseInt(item.rentalPrice.replace('$', ''))
-  );
+  const rentalPrices = array.map(item => parseInt(item.rentalPrice.replace('$', '')));
 
   // Знайдемо максимальне значення rentalPrice.
   const maxRentalPrice = Math.max(...rentalPrices);

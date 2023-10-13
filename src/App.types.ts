@@ -16,3 +16,10 @@ export type ResponseData = {
   rentalConditions: string;
   mileage: number;
 };
+
+export type SearchParams = {
+  make: string;
+  rentalPrice: string;
+  fromMileage: string;
+  toMileage: string;
+};
