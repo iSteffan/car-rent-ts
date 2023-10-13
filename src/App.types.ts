@@ -1,4 +1,4 @@
-export type Data = {
+export type ResponseData = {
   id: number;
   year: number;
   make: string;

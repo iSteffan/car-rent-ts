@@ -2,12 +2,15 @@ import { Icon, Btn, ActiveIcon } from './AddToFavorBtn.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites, addFavor, deleteFavor } from '../../../../redux/favor/favoritesSlice';
 import { checkFavorBtnStatus } from '../../../../utils/checkFavorBtnStatus';
+import { ResponseData } from '../../../../App.types';
 
-export const AddToFavorBtn = ({ data }) => {
+type Props = { data: ResponseData };
+
+export const AddToFavorBtn = ({ data }: Props) => {
   const dispatch = useDispatch();
 
   const favorite = useSelector(selectFavorites);
-  console.log(favorite);
+  // console.log(favorite);
   const isFavorite = checkFavorBtnStatus(favorite, data);
 
   return (
