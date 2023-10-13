@@ -7,8 +7,27 @@ import {
 
 export const ErrorMessage = styled(FormikErrorMessage)`
   position: absolute;
-  top: 75px;
+  top: 49px;
   left: 0;
+
+  font-size: 12px;
+  color: red;
+`;
+
+export const ErrorMessageFieldFrom = styled(FormikErrorMessage)`
+  position: absolute;
+  top: 49px;
+  left: 0;
+  width: 160px;
+
+  font-size: 12px;
+  color: red;
+`;
+
+export const ErrorMessageFieldTo = styled(FormikErrorMessage)`
+  position: absolute;
+  top: 49px;
+  left: 160px;
   font-size: 12px;
   color: red;
 `;

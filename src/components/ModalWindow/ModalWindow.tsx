@@ -1,11 +1,19 @@
 import { createPortal } from 'react-dom';
+import { MouseEvent } from 'react';
 import { Backdrop, ModalContainer, CloseButton, CloseIcon, Img } from './ModalWindow.styled';
 import { CarDataModal } from './components/CarDataModal/CarDataModal';
+import { ResponseData } from '../../App.types';
 
-export const ModalWindow = ({ data, handlerCloseModal }) => {
+type Props = { data: ResponseData; handlerCloseModal: () => void };
+
+export const ModalWindow = ({ data, handlerCloseModal }: Props) => {
   const modalRoot = document.querySelector('#modal-root');
 
-  const handleBackdropClick = event => {
+  if (!modalRoot) {
+    return null;
+  }
+
+  const handleBackdropClick = (event: MouseEvent): void => {
     if (event.currentTarget === event.target) handlerCloseModal();
   };
 
