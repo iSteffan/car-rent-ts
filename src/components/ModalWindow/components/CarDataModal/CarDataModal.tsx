@@ -9,8 +9,11 @@ import {
   RentBtn,
 } from './CarDataModal.styled';
 import { extractCity, extractCountry } from '../../../../utils/extractor';
+import { ResponseData } from '../../../../App.types';
 
-export const CarDataModal = ({ data }) => {
+type Props = { data: ResponseData };
+
+export const CarDataModal = ({ data }: Props) => {
   const {
     id,
     make,
@@ -18,7 +21,6 @@ export const CarDataModal = ({ data }) => {
     year,
     rentalPrice,
     address,
-    // rentalCompany,
     type,
     mileage,
     fuelConsumption,

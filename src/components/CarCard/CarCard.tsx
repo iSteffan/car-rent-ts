@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { CardContainer, Image } from './CarCard.styled';
-import { CarData } from '../CarCard/components/CarData/CarData';
-import { LearnMoreBtn } from '../CarCard/components/LearnMoreBtn/LearnMoreBtn';
-import { AddToFavorBtn } from '../CarCard/components/AddToFavorBtn/AddToFavorBtn';
+import { CarData } from './components/CarData/CarData';
+import { LearnMoreBtn } from './components/LearnMoreBtn/LearnMoreBtn';
+import { AddToFavorBtn } from './components/AddToFavorBtn/AddToFavorBtn';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
 // import Car from '../../img/empty.jpg';
+import { ResponseData } from '../../App.types';
 
-export const CarCard = ({ item }) => {
+type Props = { item: ResponseData };
+
+export const CarCard = ({ item }: Props) => {
   const [isTaskModalOpened, setIsTaskModalOpened] = useState(false);
   const handleToggle = () => setIsTaskModalOpened(prevState => !prevState);
 
@@ -21,7 +24,7 @@ export const CarCard = ({ item }) => {
         <Image src={item.img} alt={item.description} />
         <AddToFavorBtn data={item} />
         <CarData data={item} />
-        <LearnMoreBtn data={item} onClick={handleToggle} />
+        <LearnMoreBtn onClick={handleToggle} />
       </CardContainer>
       {isTaskModalOpened && (
         <ModalWindow data={item} handlerCloseModal={handleToggle}></ModalWindow>

@@ -1,5 +1,7 @@
 import { Btn } from './LearnMoreBtn.styled';
 
-export const LearnMoreBtn = ({ onClick }) => {
+type Props = { onClick: () => void };
+
+export const LearnMoreBtn = ({ onClick }: Props) => {
   return <Btn onClick={onClick}>Learn more</Btn>;
 };

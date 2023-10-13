@@ -1,18 +1,12 @@
 import { Box, MainDataBox, DetailsBox } from './CarData.styled';
 import { extractCity, extractCountry } from '../../../../utils/extractor';
+import { ResponseData } from '../../../../App.types';
 
-export const CarData = ({ data }) => {
-  const {
-    make,
-    model,
-    year,
-    rentalPrice,
-    address,
-    rentalCompany,
-    type,
-    mileage,
-    functionalities,
-  } = data;
+type Props = { data: ResponseData };
+
+export const CarData = ({ data }: Props) => {
+  const { make, model, year, rentalPrice, address, rentalCompany, type, mileage, functionalities } =
+    data;
 
   const city = extractCity(address);
   const country = extractCountry(address);
