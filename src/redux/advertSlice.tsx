@@ -53,13 +53,13 @@ const advertsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchAdverts.pending, handlePending);
-    // builder.addCase(fetchAdverts.rejected, handleRejected);
+    builder.addCase(fetchAdverts.rejected.type, handleRejected);
     builder.addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess);
     builder.addCase(fetchAdvertsPerPage.pending, handlePending);
-    // builder.addCase(fetchAdvertsPerPage.rejected, handleRejected);
+    builder.addCase(fetchAdvertsPerPage.rejected.type, handleRejected);
     builder.addCase(fetchAdvertsPerPage.fulfilled, handleFetchAdvertsPerPageSuccess);
     builder.addCase(fetchAdvertsAmount.pending, handlePending);
-    // builder.addCase(fetchAdvertsAmount.rejected, handleRejected);
+    builder.addCase(fetchAdvertsAmount.rejected.type, handleRejected);
     builder.addCase(fetchAdvertsAmount.fulfilled, handleFetchAdvertsAmountSuccess);
   },
 });
