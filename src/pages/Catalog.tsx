@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchAdverts,
-  fetchAdvertsPerPage,
-  fetchAdvertsAmount,
-} from '../redux/advertOperations';
-import {
-  selectAdverts,
-  selectAmount,
-  selectIsLoading,
-  selectError,
-} from '../redux/advertSlice';
+import { fetchAdverts, fetchAdvertsPerPage, fetchAdvertsAmount } from '../redux/advertOperations';
+import { selectAdverts, selectAmount, selectIsLoading, selectError } from '../redux/advertSlice';
 import { CarCard } from '../components/CarCard/CarCard';
 import { List, Container } from './Catalog.styled';
 import { LoadMoreBtn } from '../components/LoadMoreBtn/LoadMoreBtn';
@@ -19,11 +10,13 @@ import { SearchForm } from '../components/SearchForm/SearchForm';
 import { findUniqueBrand } from '../utils/findUniqueBrand';
 import { extractRentalPricesInRange } from '../utils/extractRentalPricesInRange';
 import { searchFilter } from '../utils/searchFilter';
+import { SearchParams, ResponseData } from '../App.types';
+import { AppDispatch } from '../redux/store';
 
 const Catalog = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [page, setPage] = useState(2);
-  const [filteredItems, setFilteredItems] = useState(null);
+  const [filteredItems, setFilteredItems] = useState<null | ResponseData[]>(null);
 
   useEffect(() => {
     dispatch(fetchAdverts());
@@ -43,20 +36,16 @@ const Catalog = () => {
   const carModels = findUniqueBrand(itemsAmount);
   const rentalPriceRange = extractRentalPricesInRange(itemsAmount);
 
-  const handleSearch = searchParam => {
+  const handleSearch = (searchParam: SearchParams) => {
     const filteredCars = searchFilter(itemsAmount, searchParam);
-    setFilteredItems(filteredCars);
+    setFilteredItems(filteredCars || null);
   };
 
   const renderItems = filteredItems ? filteredItems : items;
 
   return (
     <Container>
-      <SearchForm
-        data={carModels}
-        priceRange={rentalPriceRange}
-        onSave={handleSearch}
-      />
+      <SearchForm data={carModels} priceRange={rentalPriceRange} onSave={handleSearch} />
 
       {isLoading && (
         <div style={{ marginTop: '200px' }}>
