@@ -86,7 +86,7 @@ export const SearchForm: React.FC<Props> = ({ onSave, data, priceRange }) => {
             </Datalist>
           </PriceContainer>
           <Fieldset>
-            <Label htmlFor="fromMileage toMileage">Сar mileage / km</Label>
+            <Label htmlFor="fromMileage">Сar mileage / km</Label>
             <MileageBox>
               <FieldMileageFrom name="fromMileage" id="fromMileage" placeholder="From" />
               <ErrorMessageFieldFrom name="fromMileage" component="div" />
