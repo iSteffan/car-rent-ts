@@ -5,8 +5,10 @@ import { ResponseData } from '../App.types';
 interface AdvertsState {
   items: ResponseData[];
   isLoading: boolean;
-  error: string | null;
+  error: string | null | unknown;
   itemPages: ResponseData[];
+  message: string;
+  type: string;
 }
 
 const initialState: AdvertsState = {
@@ -14,6 +16,8 @@ const initialState: AdvertsState = {
   isLoading: false,
   error: null,
   itemPages: [],
+  message: '',
+  type: '',
 };
 
 const handlePending = (state: AdvertsState) => {
@@ -53,7 +57,11 @@ const advertsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchAdverts.pending, handlePending);
-    // builder.addCase(fetchAdverts.rejected, handleRejected);
+    builder.addCase(fetchAdverts.rejected, (state, action) => {
+      const { code } = action.error;
+      state.type = parseInt(code ?? '', 10) === 500 ? 'error' : 'warning';
+      state.message = 'Failed to get response from server';
+    });
     builder.addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess);
     builder.addCase(fetchAdvertsPerPage.pending, handlePending);
     // builder.addCase(fetchAdvertsPerPage.rejected, handleRejected);

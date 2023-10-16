@@ -10,8 +10,17 @@ export const fetchAdverts = createAsyncThunk('adverts/fetchFirstPage', async (_,
   try {
     const response: AxiosResponse<ResponseData[]> = await axios.get(`/adverts?page=1&limit=8`);
     return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error as ApiError);
+  } catch (e) {
+    const {
+      response: { data, status },
+    } = e as unknown as {
+      response: { data: string; status: number };
+    };
+    throw {
+      name: 'Request Failed',
+      message: data,
+      code: `${status}`,
+    };
   }
 });
 
@@ -23,8 +32,17 @@ export const fetchAdvertsPerPage = createAsyncThunk(
         `/adverts?page=${page}&limit=8`
       );
       return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error as ApiError);
+    } catch (e) {
+      const {
+        response: { data, status },
+      } = e as unknown as {
+        response: { data: string; status: number };
+      };
+      throw {
+        name: 'Request Failed',
+        message: data,
+        code: `${status}`,
+      };
     }
   }
 );
@@ -35,8 +53,17 @@ export const fetchAdvertsAmount = createAsyncThunk(
     try {
       const response: AxiosResponse<ResponseData[]> = await axios.get(`/adverts`);
       return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error as ApiError);
+    } catch (e) {
+      const {
+        response: { data, status },
+      } = e as unknown as {
+        response: { data: string; status: number };
+      };
+      throw {
+        name: 'Request Failed',
+        message: data,
+        code: `${status}`,
+      };
     }
   }
 );
