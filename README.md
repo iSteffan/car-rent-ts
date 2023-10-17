@@ -24,5 +24,5 @@ Pet project.
 <p>Clicking the "Learn more" button opens a modal window with detailed information about the car and its rental conditions.</p>
 
 <p>I use the mockapi service as my database with the following data structure:</p>
-![image](https://github.com/iSteffan/car-rent-ts/assets/mockapi.jpg)
-<img src="https://github.com/iSteffan/car-rent-ts/assets/mockapi.jpg" title="mockapi" alt="mockapi" width="410" height="410"/>
+![mockapi](https://github.com/iSteffan/car-rent-ts/assets/112157511/ccf632ca-769e-409e-9ba9-d16d82b7a702)
+
