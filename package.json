@@ -2,6 +2,7 @@
   "name": "car-rent-ts",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://isteffan.github.io/car-rent-ts",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -28,6 +29,8 @@
     "yup": "^1.3.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^6.0.0"
   }
 }
