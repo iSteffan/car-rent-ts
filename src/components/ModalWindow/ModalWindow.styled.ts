@@ -18,7 +18,7 @@ export const ModalContainer = styled.div`
 
   position: relative;
   width: 514px;
-  height: 752px;
+  min-height: 752px;
   background-color: #fff;
   border: none;
   border-radius: 24px;
