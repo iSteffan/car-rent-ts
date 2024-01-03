@@ -7,7 +7,7 @@ import {
 
 export const ErrorMessage = styled(FormikErrorMessage)`
   position: absolute;
-  top: 49px;
+  top: 75px;
   left: 0;
 
   font-size: 12px;
