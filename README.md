@@ -12,6 +12,10 @@ Pet project.
 </br>
 <p>Welcome to my car rental services website!</p>
 
+**[LIVE PAGE](https://isteffan.github.io/car-rent-ts/)**
+
+<img width="100%" src="./public/readme/readme_car-rent.jpg" alt="main page"/>
+
 </br>
 <p>The website consists of three pages:</p>
 <ol>
